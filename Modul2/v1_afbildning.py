@@ -25,12 +25,10 @@ def double(v):
     if len(v) == 0:
         raise ValueError("List is empty")
     i = 0
-    doublelst = []
     while i < len(v):
         v[i] = v[i] * 2
-        doublelst.append(v[i])
         i = i + 1
-    return doublelst
+    return v
 
 print(double([1, 2, 3]))
 

@@ -1,38 +1,41 @@
-# #sales_volume_per_agent
-# print("----------------------------------------------------")
-# print("Sales_volume_per_agent")
-# def sales_volume_per_agent(orders):
-#     sales_volume = {}
+#sales_volume_per_agent
+print("----------------------------------------------------")
+print("Sales_volume_per_agent")
+def sales_volume_per_agent(orders):
+    sales_volume = {}
     
-#     i = 0
+    i = 0
     
-#     while i < len(orders):
-#         sales_agent_id = orders[i][1]  # Få sælgerens ID
-#         order_value = orders[i][2]      # Få ordrebeløbet
+    while i < len(orders):
+        sales_agent_id = orders[i][1]  # Få sælgerens ID
+        order_value = orders[i][2]      # Få ordrebeløbet
         
-#         # Opdater salgsvolumen for sælgeren
-#         if sales_agent_id in sales_volume:
-#             sales_volume[sales_agent_id] += order_value
-#         else:
-#             sales_volume[sales_agent_id] = order_value
+        # Opdater salgsvolumen for sælgeren
+        if sales_agent_id in sales_volume:
+            sales_volume[sales_agent_id] += order_value
+        else:
+            sales_volume[sales_agent_id] = order_value
         
-#         i += 1
+        i += 1
     
-#     # Konverter ordbogen til en liste af lister, divider med 100 for at få kroner
-#     return [[agent, volume / 100] for agent, volume in sales_volume.items()]
+    # Konverter ordbogen til en liste af lister, divider med 100 for at få kroner
+    result = []
+    for agent, volume in sales_volume.items():
+        result.append([agent, volume / 100])
+    return result
 
-# orders = [
-#     ['dk-34922423', 'pja', 55_960_00],
-#     ['dk-34927049', 'pja', 35_905_31],
-#     ['dk-34929950', 'ssk', 1_000_000_00],
-#     ['dk-34929950', 'pja', 72_048_67],
-# ]
+orders = [
+    ['dk-34922423', 'pja', 55_960_00],
+    ['dk-34927049', 'pja', 35_905_31],
+    ['dk-34929950', 'ssk', 1_000_000_00],
+    ['dk-34929950', 'pja', 72_048_67],
+]
 
-# result = sales_volume_per_agent(orders)
+result = sales_volume_per_agent(orders)
 
-# # Udskriv resultatet
-# for row in result:
-#     print(f"Sælger ID: {row[0]}, Salgsvolumen: {row[1]:,.2f}")
+# Udskriv resultatet
+for row in result:
+    print(f"Sælger ID: {row[0]}, Salgsvolumen: {row[1]:,.2f}")
 
 # #Opgave 2
 # print("----------------------------------------------------")

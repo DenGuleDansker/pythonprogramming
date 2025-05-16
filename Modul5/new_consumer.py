@@ -10,13 +10,15 @@ customer2orders = {}  # customer IDs to order IDs
 date2oids = {} # date to sets of order IDs
 lock = threading.Lock()
 
-def update_order(order_id, order_details):
+def get_customers(order_id, order_details):
     # Check for mandatory fields
     customer_id = order_details.get('customer_id')
     if customer_id is None:
         print(f"Order {order_id} ignored: 'customer_id' is missing")
         return  # Exit if customer_id is not present
     
+
+def update_order(order_id, order_details):
     new_date = order_details['date']
     
     with lock:
