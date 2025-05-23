@@ -40,14 +40,24 @@ def squared(v):
     if len(v) == 0:
         raise ValueError("List is empty")
     i = 0
-    squaredlst = []
     while i < len(v):
-        v[i] = v[i] * v[i]
-        squaredlst.append(v[i])
+        v[i] *= v[i] 
         i = i + 1
-    return squaredlst
+    return v
 
 print(squared([1, 2, 3]))
+
+# Test af squared-funktionen
+def test_squared_in_place():
+    # Arrange
+    input_list = [1, 2, 3]
+    expected_list = [1, 4, 9]
+
+    # Act
+    squared(input_list)
+
+    # Assert
+    assert input_list == expected_list, f"Fejl: Forventet {expected_list}, men fik {input_list}"
 
 print("-----------------------------------------------------------------------------------------------")
 print("Opgave 4")

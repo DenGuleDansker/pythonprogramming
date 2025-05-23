@@ -33,9 +33,17 @@ def test_squared_raises_error():
     with raises(ValueError):
         squared([])
 
-def test_squared_with_3_positives():
-    assert squared([1, 2, 3]) == [1, 4, 9]
+def test_squared_in_place():
+    # Arrange: Definer inputlisten
+    input_list = [1, 2, 3]
+    expected_list = [1, 4, 9]  # Definer det forventede resultat, da listen ændres in-place
 
+    # Act: Kald funktionen der skal testes, `squared`, med inputlisten.  Listen modificeres direkte.
+    squared(input_list)
+
+    # Assert: Tjek om den *oprindelige* inputliste nu er som forventet.
+    assert input_list == expected_list
+    
 def test_squared_with_0():
     assert squared([0, 0, 0]) == [0, 0, 0]
 
